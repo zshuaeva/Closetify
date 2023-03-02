@@ -4,6 +4,8 @@ Team:
 
 * Person 1 - Which microservice?
 * Joshua Evangelista - Shoes Microservice
+* Trey Pressey - Hats
+* Person 2 - Which microservice?
 
 ## Design
 
