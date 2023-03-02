@@ -10,7 +10,7 @@ Team:
 ## Design
 
 ## Shoes microservice
-Test comment (changes should be seen in "shoe-branch")
+Test comment (changes should be seen in "shoe-branch", test 2)
 Explain your models and integration with the wardrobe
 microservice, here.
 
