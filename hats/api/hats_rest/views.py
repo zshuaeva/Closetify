@@ -62,6 +62,8 @@ def api_show_hat(request, pk):
         safe=False,
     )
 
+
+#Testing to see if VOS are being created
 def api_show_locationVO(request):
     locationsVO = LocationVO.objects.all()
     return JsonResponse(
