@@ -6,6 +6,7 @@ Team:
 * Joshua Evangelista - Shoes Microservice
 * Trey Pressey - Hats
 * Person 2 - Which microservice?
+* Cool change
 
 ## Design
 
