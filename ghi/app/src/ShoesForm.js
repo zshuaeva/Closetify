@@ -43,7 +43,7 @@ import React, { useEffect, useState} from 'react';
       data.shoe_color = shoe_color;
       data.shoe_picture_url = shoe_picture_url;
       data.bin = bin;
-      console.log(data)
+
 
       const shoesUrl ='http://localhost:8080/api/shoes/';
       const fetchConfig = {
@@ -56,7 +56,6 @@ import React, { useEffect, useState} from 'react';
       const response = await fetch(shoesUrl, fetchConfig);
       if (response.ok) {
         const newShoe = await response.json();
-        console.log(newShoe)
 
         setShoeBrand('');
         setShoeName('');
@@ -71,7 +70,7 @@ import React, { useEffect, useState} from 'react';
       const binsResponse = await fetch(binsUrl);
       if (binsResponse.ok) {
         const binsData = await binsResponse.json();
-        console.log(binsData)
+
         setBins(binsData.bins);
       } else {
         console.log("bad response")
