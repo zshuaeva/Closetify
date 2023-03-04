@@ -22,6 +22,7 @@ class ShoesListEncoder(ModelEncoder):
     "id",
     "shoe_brand",
     "shoe_color",
+    "shoe_name",
     "shoe_picture_url",
     "bin",
   ]
@@ -45,7 +46,7 @@ def api_shoes(request):
   if request.method == "GET":
     shoes = Shoe.objects.all()
     return JsonResponse(
-      shoes,
+      {"shoes":shoes},
       encoder=ShoesListEncoder,
       safe=False
     )
@@ -66,3 +67,16 @@ def api_shoes(request):
       encoder=ShoesDetailEncoder,
       safe=False,
     )
+
+@require_http_methods(["GET", "DELETE"])
+def api_shoe(request, pk):
+  if request.method == "GET":
+    shoe = Shoe.objects.get(id=pk)
+    return JsonResponse(
+      shoe,
+      encoder=ShoesListEncoder,
+      safe=False
+    )
+  elif request.method == "DELETE":
+    count, _= Shoe.objects.filter(id=pk).delete()
+    return JsonResponse({"deleted": count > 0})
