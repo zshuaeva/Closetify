@@ -21,7 +21,7 @@ async function loadShoes() {
       </React.StrictMode>
     )
   } else {
-    console.error(response)
+    console.error("Error message")
   }
 }
 loadShoes();
