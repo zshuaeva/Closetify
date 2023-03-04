@@ -10,23 +10,9 @@ function ShoesList(props) {
     method: "delete",
     }
   const response = await fetch(shoeUrl, fetchConfig)
-
+  window.location.reload();
   }
 
-  // // const [shoes, setShoes] = useState('')
-  // async function fetchData() {
-  // const shoesUrl ='http://localhost:8080/api/shoes/';
-  // const shoesResponse = await fetch(shoesUrl);
-  //   if (shoesResponse.ok) {
-  //     const shoesData = await shoesResponse.json();
-  //     console.log(shoesData)
-  //   } else {
-  //   console.log("bad shoes response")
-  //   }
-  // }
-  // // useEffect(() => {
-  // fetchData();
-  // // }, []);
   return (
     <table className="table table-striped">
       <thead>
