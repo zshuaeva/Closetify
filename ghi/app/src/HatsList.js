@@ -37,7 +37,7 @@ function HatsList(props) {
                         <td>{ hat.style }</td>
                         <td>{ hat.color }</td>
                         <td>
-                            <img src={hat.picture} className="img-responsive"/>
+                            <img src={hat.picture} className="img-fluid" alt="Responsive image"/>
                         </td>
                         <td>{ hat.location }</td>
                         <td>

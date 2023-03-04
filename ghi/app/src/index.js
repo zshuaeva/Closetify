@@ -15,6 +15,7 @@ async function loadShoes() {
   if (shoesResponse.ok && hatsResponse.ok) {
     const shoeData = await shoesResponse.json();
     const data = await hatsResponse.json()
+    console.log(data)
     root.render(
       <React.StrictMode>
         <App shoes={shoeData.shoes} hats={data.hats} />
