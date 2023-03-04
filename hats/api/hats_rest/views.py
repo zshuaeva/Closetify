@@ -12,14 +12,14 @@ class LocationVODetailEncoder(ModelEncoder):
 
 class HatListEncoder(ModelEncoder):
     model = Hat
-    properties = ["fabric", "style",]
+    properties = ["fabric", "style", "color", "picture", "id"]
 
     def get_extra_data(self, o):
         return {"location": o.location.closet_name}
 
 class HatDetailEncoder(ModelEncoder):
     model = Hat
-    properties = ["fabric", "style", "picture", "color", "location",]
+    properties = ["fabric", "style", "picture", "color", "location", "id"]
     encoders = {
         "location": LocationVODetailEncoder(),
     }
@@ -53,15 +53,18 @@ def api_list_hats(request):
         )
 
 
-
+@require_http_methods(["GET", "DELETE"])
 def api_show_hat(request, pk):
-    hat = Hat.objects.get(id=pk)
-    return JsonResponse(
-        hat,
-        encoder=HatDetailEncoder,
-        safe=False,
-    )
-
+    if request.method == "GET":
+        hat = Hat.objects.get(id=pk)
+        return JsonResponse(
+            hat,
+            encoder=HatDetailEncoder,
+            safe=False,
+        )
+    else:
+        count, _ = Hat.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted": count > 0})
 
 #Testing to see if VOS are being created
 def api_show_locationVO(request):
